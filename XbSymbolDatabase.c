@@ -31,6 +31,8 @@
 // ******************************************************************
 #define _XBOXKRNL_DEFEXTRN_
 
+#define __STDC_NO_THREADS__
+
 #include <string.h>
 #include <stdio.h>
 #include <stdarg.h>
@@ -1212,10 +1214,10 @@ bool XbSymbolDatabase_CreateXbSymbolContext(XbSymbolContextHandle* ppHandle,
     iXbSymbolContext* pContext = (iXbSymbolContext*)*ppHandle;
 
 #ifdef MULTI_THREAD_SAFE
-    pContext->mutex = 0;
+    pContext->mutex.handle = 0;
     mtx_init(&pContext->mutex, mtx_plain);
 
-    if (pContext->mutex == 0) {
+    if (pContext->mutex.handle == 0) {
         goto ContextCleanup;
     }
 #endif
