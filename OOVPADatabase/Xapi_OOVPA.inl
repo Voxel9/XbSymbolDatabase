@@ -111,12 +111,14 @@
 #include "Xapi/4242.inl"
 #include "Xapi/4361.inl"
 #include "Xapi/4432.inl"
+#include "Xapi/4627.inl"
 #include "Xapi/4721.inl"
 #include "Xapi/4831.inl"
 #include "Xapi/5028.inl"
 #include "Xapi/5120.inl"
 #include "Xapi/5344.inl"
 #include "Xapi/5455.inl"
+#include "Xapi/5558.inl"
 #include "Xapi/5788.inl"
 
 // ******************************************************************
@@ -175,6 +177,12 @@ OOVPATable XAPILIB_OOVPA[] = {
     REGISTER_OOVPAS(XapiFiberStartup, 3911),
     REGISTER_OOVPAS(timeKillEvent, 3911),
     REGISTER_OOVPAS(timeSetEvent, 3911),
+	REGISTER_OOVPAS(RtlCreateHeap, 3911, 5558),
+	REGISTER_OOVPAS(RtlAllocateHeap, 3911, 5558),
+	REGISTER_OOVPAS(RtlFreeHeap, 3911, 4361, 4432, 4627),
+	REGISTER_OOVPAS(RtlReAllocateHeap, 3911, 4627),
+	REGISTER_OOVPAS(RtlSizeHeap, 3911, 5558),
+	REGISTER_OOVPAS(RtlDestroyHeap, 4134),
 
 };
 
